@@ -1,6 +1,6 @@
-BodyPartType
 <script setup lang="ts">
 import { computed } from "vue";
+import { BASE } from "./constants";
 import IconDownload from "./components/icons/IconDownload.vue";
 import IconShuffle from "./components/icons/IconShuffle.vue";
 import IconButton from "./components/IconButton.vue";
@@ -31,7 +31,7 @@ const filteredParts = computed(() => {
         :key="index"
         class="img"
         :style="`z-index: ${index}`"
-        :src="`/assets/${part}/${styles[part]}.png`"
+        :src="`${BASE}/assets/${part}/${styles[part]}.png`"
       />
       <div class="action-buttons">
         <IconButton text="Random" @click="styles.randomizeStyle()"

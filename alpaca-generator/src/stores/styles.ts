@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import mergeImages from "merge-images";
+import { BASE } from "../constants";
 
 export const BODY_PARTS = {
   backgrounds: [
@@ -24,7 +25,7 @@ export const BODY_PARTS = {
   ],
   ears: ["default", "tilt-backward", "tilt-forward"],
   neck: ["bend-backward", "bend-forward", "default", "thick"],
-  hair: ["bang", "curls", "default", "elegant", "fancy", "quiff", "short"],
+  hair: ["bang", "curls", "default", "elegant", "fancy", "short"],
   accessories: ["earings", "flower", "glasses", "headphone"],
   leg: [
     "bubble-tea",
@@ -89,7 +90,7 @@ export const useStyles = defineStore({
     downloadImage() {
       const parts = Object.keys(BODY_PARTS) as BodyPartType[];
       const imagesArr = parts.map((part) => {
-        return `src/assets/${part}/${this[part]}.png`;
+        return `${BASE}/assets/${part}/${this[part]}.png`;
       });
 
       mergeImages(imagesArr).then((b64) => {
